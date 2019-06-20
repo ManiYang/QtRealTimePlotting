@@ -5,6 +5,7 @@
 #include <QtCharts>
 #include <QChart>
 #include <QElapsedTimer>
+#include <QVector>
 #include "plotdataprovider.h"
 
 namespace Ui {
@@ -22,7 +23,7 @@ public:
 private slots:
     void on_buttonTest_clicked();
     void on_buttonStart_clicked();
-    void plotData(QVector<double> data);
+    void plotData(VecD data);
 
 private:
     Ui::Dialog *ui;

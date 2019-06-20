@@ -13,7 +13,7 @@ PlotDataProvider::PlotDataProvider(QThread *thread, QObject *parent)
 void PlotDataProvider::run()
 {
     //qDebug() << "PlotDataProvider started running.";
-    QVector<double> data;
+    VecD data;
     while(!stop)
     {
         m_thread->msleep(200);

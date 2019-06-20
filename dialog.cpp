@@ -42,8 +42,9 @@ Dialog::Dialog(QWidget *parent) :
 
     //
     m_dataProvider->moveToThread(m_thread);
-    connect(m_dataProvider, SIGNAL(dataReady(QVector<double>)),
-            this, SLOT(plotData(QVector<double>)));
+    qRegisterMetaType<VecD>("VecD");
+    connect(m_dataProvider, SIGNAL(dataReady(VecD)),
+            this, SLOT(plotData(VecD)));
 }
 
 Dialog::~Dialog()
@@ -71,7 +72,7 @@ void Dialog::on_buttonStart_clicked()
     ui->buttonStart->setEnabled(false);
 }
 
-void Dialog::plotData(QVector<double> data)
+void Dialog::plotData(VecD data)
 {
     static QElapsedTimer timer;
     timer.start();

@@ -3,6 +3,10 @@
 
 #include <QObject>
 #include <QThread>
+#include <QMetaType>
+#include <QVector>
+
+typedef QVector<double> VecD;
 
 class PlotDataProvider : public QObject
 {
@@ -12,7 +16,7 @@ public:
     bool stop;
 
 signals:
-    void dataReady(QVector<double> data);
+    void dataReady(VecD);
 
 public slots:
     void run();
