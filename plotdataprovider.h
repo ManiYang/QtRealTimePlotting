@@ -13,13 +13,16 @@ class PlotDataProvider : public QObject
     Q_OBJECT
 public:
     explicit PlotDataProvider(QThread *thread, QObject *parent = nullptr);
+    ~PlotDataProvider();
     bool stop;
+    bool pause;
 
 signals:
     void dataReady(VecD);
 
-public slots:
+private slots:
     void run();
+    void cleanUp();
 
 private:
     QThread *m_thread;
